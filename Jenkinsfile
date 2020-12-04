@@ -27,6 +27,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps{
                 withSonarQubeEnv('sonarqube') {
+                    sh 'java -version'
                     sh 'mvn spnar:sonar -target 1.7'
                 }
             }
