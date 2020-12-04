@@ -25,8 +25,10 @@ pipeline {
         }
         
         stage('SonarQube analysis') {
-            withSonarQubeEnv('sonarqube') { // You can override the credential to be used
-                sh 'mvn sonar:sonar'
+            steps{
+                withSonarQubeEnv('sonarqube') {
+                    sh 'mvn sonar:sonar'
+                }
             }
         }
     }
