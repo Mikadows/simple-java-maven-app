@@ -27,8 +27,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps{
                 withSonarQubeEnv('sonarqube') {
-                    sh 'java -version'
-                    sh 'mvn spnar:sonar -target 1.8'
+                    sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
                 }
             }
         }
