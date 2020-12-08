@@ -1,7 +1,7 @@
 pipeline {
 
     agent any
-    
+    def scannerHome = tool 'SonarScanner 4.0';
     
     stages {
     
@@ -26,7 +26,6 @@ pipeline {
         }
         
         stage('SonarQube analysis') {
-            def scannerHome = tool 'SonarScanner 4.0';
             steps{
                 withSonarQubeEnv('sonarqube') {
                     sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=sonar.properties"
