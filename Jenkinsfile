@@ -6,7 +6,10 @@ pipeline {
     
         stage ('Git clone') {
             steps {
-                git 'https://github.com/Mikadows/simple-java-maven-app.git'
+                git(
+                    url: "https://github.com/Mikadows/simple-java-maven-app.git",
+                    branch: "${BRANCHE}"
+                )
             }
         }
         
